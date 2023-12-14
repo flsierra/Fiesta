@@ -12,97 +12,40 @@ public class Usuario {
     protected Long id;
 
     @Column(length = 50)
-    private String nombre;
+    private String username;
 
     @Column(length = 50)
-    private String apellido;
+    private String password;
 
-    @Column(length = 150)
-    private String direccion;
-
-    @Column
-    private Integer edad;
+ 
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String direccion, Integer edad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.edad = edad;
+    public Usuario(String username, String password) {
+        this.username = username;
+        this.password = password;
+
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsername() {
+        return username;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getPassword() {
+        return password;
     }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public Integer getEdad() {
-        return edad;
-    }
-
-    public List<Publicacion> getPublicaciones() {
-        return publicaciones;
-    }
-
-    public List<Mensaje> getMensajesEnviados() {
-        return mensajesEnviados;
-    }
-
-    public List<Mensaje> getMensajesRecibidos() {
-        return mensajesRecibidos;
-    }
-
-    public List<Amistad> getSolicitudasEnviadas() {
-        return solicitudasEnviadas;
-    }
-
-    public List<Amistad> getSolicitudasRecibidas() {
-        return solicitudasRecibidas;
-    }
-
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    @OneToMany(mappedBy = "usuario")
-    List<Publicacion> publicaciones;
-
-    @OneToMany(mappedBy = "emisor")
-    List<Mensaje> mensajesEnviados;
-
-    @OneToMany(mappedBy = "receptor")
-    List<Mensaje> mensajesRecibidos;
-
-    @OneToMany(mappedBy = "solicitante")
-    List<Amistad> solicitudasEnviadas;
-
-    @OneToMany(mappedBy = "solicitado")
-    List<Amistad> solicitudasRecibidas;
-
-    @OneToMany(mappedBy = "usuario")
-    List<Comentario> comentarios;
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", edad=" + edad +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
